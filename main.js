@@ -7,6 +7,7 @@ let seconds = 0;
 let interval = null;
 
 
+const colorSwitch = document.getElementById('input-color-switch');
 
 
 window.addEventListener('load', ()=>{
@@ -14,11 +15,16 @@ window.addEventListener('load', ()=>{
     const input = document.querySelector('#new-task-input');
     const list_el = document.querySelector('#tasks');
 
-      start_btn.addEventListener('click', start);
-      stop_btn.addEventListener('click', _stop);
-      reset_btn.addEventListener('click', reset);
+    // timer
+    start_btn.addEventListener('click', start);
+    stop_btn.addEventListener('click', _stop);
+    reset_btn.addEventListener('click', reset);
 
 
+    // dark mode toggle
+    colorSwitch.addEventListener('click', checkMode);
+
+    // taskLists
     form.addEventListener('submit', (e)=>{
         e.preventDefault();
 
@@ -121,4 +127,23 @@ function reset(){
 function _stop(){
     clearInterval(interval);
     interval= null;
+}
+
+function checkMode(){
+    if (colorSwitch.checked){
+        lightModeOn();
+
+    }
+    else{
+        lightModeOff();
+
+    }
+}
+
+function lightModeOn(){
+    document.body.classList.add("light-mode");
+}
+
+function lightModeOff(){
+    document.body.classList.remove("light-mode");
 }
