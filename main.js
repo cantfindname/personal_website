@@ -13,7 +13,7 @@ const colorSwitch = document.getElementById('input-color-switch');
 window.addEventListener('load', ()=>{
     const form = document.querySelector('#new-task-form');
     const input = document.querySelector('#new-task-input');
-    const timeInput = document.queryCommandIndeterm('#new-time-input');
+    const timeInput = document.querySelector('#new-time-input');
     const list_el = document.querySelector('#tasks');
 
     // timer
