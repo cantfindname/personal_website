@@ -13,6 +13,7 @@ const colorSwitch = document.getElementById('input-color-switch');
 window.addEventListener('load', ()=>{
     const form = document.querySelector('#new-task-form');
     const input = document.querySelector('#new-task-input');
+    const timeInput = document.queryCommandIndeterm('#new-time-input');
     const list_el = document.querySelector('#tasks');
 
     // timer
@@ -29,11 +30,17 @@ window.addEventListener('load', ()=>{
         e.preventDefault();
 
         const task = input.value;
+        const time = timeInput.value;
 
         if (!task){
-            alert("please fill out the task");
+            alert("Please fill out the task");
             return;
         }
+        if (!time) {
+            alert("Please fill in the time");
+            return;
+        }
+
         const task_el = document.createElement("div");
         task_el.classList.add("task");
 
